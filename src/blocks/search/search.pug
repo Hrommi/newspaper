@@ -1,0 +1,25 @@
+//- Все примеси в этом файле должны начинаться c имени блока (search)
+
+mixin search( mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +search('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' search--' + modsList[i].trim();
+      }
+    }
+
+  .search(class=allMods)&attributes(attributes)
+    .search__inner
+      .search__icon
+        svg(width='100%', height='100%')
+          use(xlink:href='/img/sprite.svg#search')
+      input.search__input(type='text')
