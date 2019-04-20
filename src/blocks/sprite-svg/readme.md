@@ -1,4 +1,4 @@
-Из файлов `sprite-svg/svg/` генерируется файл спрайта `sprite-svg/img/sprite.svg`.
+Из файлов `sprite-svg/svg/` генерируется файл спрайта `sprite-svgimg/sprite.svg`.
 
 <p class="alert  alert--warning">Блок не имеет классов, упоминаемых в разметке. Чтобы взять его в сборку, упомяните <code>sprite-svg</code> в <code>config.js#alwaysAddBlocks</code>.</p>
 
