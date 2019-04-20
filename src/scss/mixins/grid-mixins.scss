@@ -3,13 +3,11 @@ $screen-sm:                   480px !default;
 $screen-md:                   768px !default;
 $screen-lg:                   992px !default;
 $screen-xl:                   1200px !default;
-$screen-xxl:                  1800px !default;
 
 $container-sm:                100% !default;
 $container-md:                100% !default;
 $container-lg:                ($screen-lg - 30) !default;
 $container-xl:                ($screen-xl - 30) !default;
-$container-xxl:               ($screen-xxl - 30) !default;
 
 $grid-columns:                12 !default;
 $grid-gutter-width:           30px !default;
@@ -25,11 +23,11 @@ $grid-gutter-width:           30px !default;
   $sm-grid-gutter:  $grid-gutter-width,
   $md-grid-gutter:  $grid-gutter-width,
   $lg-grid-gutter:  $grid-gutter-width,
-  $xl-grid-gutter:  $grid-gutter-width,
-  $xxl-grid-gutter: $grid-gutter-width
+  $xl-grid-gutter:  $grid-gutter-width
 ) {
   display: block;
   width: 100%;
+  max-width: 1210px;
   margin-left: auto;
   margin-right: auto;
 
@@ -73,15 +71,6 @@ $grid-gutter-width:           30px !default;
       padding-right: ($xl-grid-gutter / 2);
     }
   }
-
-  @media (min-width: $screen-xxl) {
-    width: $container-xxl;
-
-    @if ($xxl-grid-gutter != $xl-grid-gutter) {
-      padding-left: ($xxl-grid-gutter / 2);
-      padding-right: ($xxl-grid-gutter / 2);
-    }
-  }
 }
 
 
@@ -95,7 +84,6 @@ $grid-gutter-width:           30px !default;
 //  $md-grid-gutter:   $grid-gutter-width   промежуток между ячейками MD-сетки
 //  $lg-grid-gutter:   $grid-gutter-width   промежуток между ячейками LG-сетки
 //  $xl-grid-gutter:   $grid-gutter-width   промежуток между ячейками XL-сетки
-//  $xxl-grid-gutter:  $grid-gutter-width   промежуток между ячейками XXL-сетки
 //------------------------------------------------------------------------------
 // Пример вызова:
 // .some-class {
@@ -117,8 +105,7 @@ $grid-gutter-width:           30px !default;
   $sm-grid-gutter:  $grid-gutter-width,
   $md-grid-gutter:  $grid-gutter-width,
   $lg-grid-gutter:  $grid-gutter-width,
-  $xl-grid-gutter:  $grid-gutter-width,
-  $xxl-grid-gutter: $grid-gutter-width
+  $xl-grid-gutter:  $grid-gutter-width
 ) {
   display: flex;
   flex-wrap: wrap;
@@ -161,14 +148,6 @@ $grid-gutter-width:           30px !default;
     @media (min-width: $screen-xl) {
       margin-left: ($xl-grid-gutter / -2);
       margin-right: ($xl-grid-gutter / -2);
-    }
-  }
-
-  @if ($xxl-grid-gutter != $xl-grid-gutter) {
-
-    @media (min-width: $screen-xxl) {
-      margin-left: ($xxl-grid-gutter / -2);
-      margin-right: ($xxl-grid-gutter / -2);
     }
   }
 }
@@ -223,7 +202,7 @@ $grid-gutter-width:           30px !default;
 //  Генератор правил для одной ячейки с возможностью указать @media
 //------------------------------------------------------------------------------
 //  Принимает:    По умолчанию:         Пояснение:
-//  $screen:      xs                    тип сетки [xs|sm|md|lg|xl|xxl]
+//  $screen:      xs                    тип сетки [xs|sm|md|lg|xl]
 //  $column:      $grid-columns         ширина (кол-во колонок для этой ячейки)
 //  $columns:     $grid-columns;        общее количество ячеек на 1 ряд
 //  $gutter:      $grid-gutter-width    промежуток между ячейками
@@ -267,13 +246,6 @@ $grid-gutter-width:           30px !default;
       @include make-col($column, $columns, $gutter);
     }
   }
-
-  @if ($screen == xxl) {
-
-    @media (min-width: $screen-xxl) {
-      @include make-col($column, $columns, $gutter);
-    }
-  }
 }
 
 
@@ -282,7 +254,7 @@ $grid-gutter-width:           30px !default;
 //  Генератор правил для отступа одной ячейки с возможностью указать @media
 //------------------------------------------------------------------------------
 //  Принимает:    По умолчанию:         Пояснение:
-//  $screen:      xs                    тип сетки [xs|sm|md|lg|xl|xxl]
+//  $screen:      xs                    тип сетки [xs|sm|md|lg|xl]
 //  $column:      1                     ширина отступа (кол-во колонок)
 //  $columns:     $grid-columns;        общее количество ячеек на 1 ряд
 //------------------------------------------------------------------------------
@@ -321,13 +293,6 @@ $grid-gutter-width:           30px !default;
   @if ($screen == xl) {
 
     @media (min-width: $screen-xl) {
-      margin-left: ($column * 100% / $columns);
-    }
-  }
-
-  @if ($screen == xxl) {
-
-    @media (min-width: $screen-xxl) {
       margin-left: ($column * 100% / $columns);
     }
   }

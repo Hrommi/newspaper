@@ -38,14 +38,37 @@ html(class='page  no-js', lang='ru')
 
     .page__inner
       .page__content
-        +page-header()
-          .page-header__item
-            +burger('Показать главное меню', 'nav', 'main-nav--open')
-          .page-header__item.page-header__item--logo
-            +logo('/')
-              img(src='img/logo.svg', alt='Газета')
-          .page-header__item
-            +search()
+        block header
+          +page-header()
+            .page-header__item.page-header__item--burger
+              +burger('Показать главное меню', 'page-header', 'page-header--open')
+            .page-header__item.page-header__item--logo
+              +logo('/')
+                img.logo__image(src='img/logo.svg', alt='Газета')
+                img.logo__image.logo__image--white(src='img/logo-white.svg', alt='Газета')
+            .page-header__item.page-header__item--nav
+              +nav()(class='page-header__nav')
+                +nav__item('Финансы', '#')
+                +nav__item('Отчёты', '#')
+                +nav__item('Управление', '#')
+                +nav__item('Личные финансы', '#')
+                +nav__item('Сторис', '#', 'stories')
+                +nav__item('НФ', '#')
+              +social('Соцсети:')(class='page-header__social')
+                +social-link('#', 'zen')(title='Yandex Zen')
+                  svg(width='100%', height='100%')
+                    use(xlink:href='/img/sprite.svg#search')
+                +social-link('#', 'instagram')(title='Instagram')
+                  svg(width='100%', height='100%')
+                    use(xlink:href='/img/sprite.svg#search')
+                +social-link('#', 'vk')(title='VKontakte')
+                  svg(width='100%', height='100%')
+                    use(xlink:href='/img/sprite.svg#search')
+                +social-link('#', 'telegram')(title='Telegram')
+                  svg(width='100%', height='100%')
+                    use(xlink:href='/img/sprite.svg#search')
+            .page-header__item.page-header__item--search
+              +search()
 
         block content
           p содержимое
@@ -60,7 +83,7 @@ html(class='page  no-js', lang='ru')
               br
               | #[a(href='mailto:hello@noboring-finance.ru') hello@noboring-finance.ru]
             .page-footer__item
-              | #[a(href='#' target='_blank') Политика конфиденциальности]
+              | #[a(href='#', target='_blank') Политика конфиденциальности]
 
     block page-bottom
       script(src='js/bundle.js')

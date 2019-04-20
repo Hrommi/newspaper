@@ -1,0 +1,41 @@
+// В этом файле должны быть стили для БЭМ-блока articles-small, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.articles-small {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__grid {
+    @include row();
+    margin-top: -16px;
+
+    @media (min-width: $screen-md) {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+    }
+
+    @media (min-width: $screen-lg) {
+      grid-template-columns: 1fr 400px;
+      grid-temlate-rows: auto;
+      margin-top: -20px;
+    }
+  }
+
+  &__item {
+    @include col();
+    margin-top: 16px;
+
+    @media (min-width: $screen-md) {
+      margin-top: 20px;
+    }
+
+    &--first {
+
+      @media (min-width: $screen-md) {
+        grid-area: 1 / 1 / 10 / 1;
+        padding-right: 0;
+      }
+    }
+  }
+}

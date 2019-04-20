@@ -1,0 +1,43 @@
+//- Все примеси в этом файле должны начинаться c имени блока (articles)
+
+mixin articles(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +articles('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' articles--' + modsList[i].trim();
+      }
+    }
+
+  .articles(class=allMods)&attributes(attributes)
+    .articles__inner
+      .articles__grid
+        block
+
+mixin articles__item(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +articles__item('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' articles__item--' + modsList[i].trim();
+      }
+    }
+
+  .articles__item(class=allMods)&attributes(attributes)
+    block

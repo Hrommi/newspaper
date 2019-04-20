@@ -1,9 +1,10 @@
 //- Все примеси в этом файле должны начинаться c имени блока (social)
 
-mixin social(mods)
+mixin social(title, mods)
 
   //- Принимает:
-  //-   mods: ''          {string} - модификаторы блока
+  //-   title   {string} - заголовок
+  //-   mods    {string} - список модификаторов
   //- Вызов:
         +social()
           +social-link('https://www.facebook.com/profile.php?id=100011672930358', 'fb')(title='Facebook')
@@ -30,8 +31,11 @@ mixin social(mods)
       }
     }
 
-  ul.social(class=allMods)&attributes(attributes)
-    block
+  .social(class=allMods)&attributes(attributes)
+    if (title)
+      .social__title!= title
+    ul.social__list
+      block
 
 mixin social-link(link, mods)
 

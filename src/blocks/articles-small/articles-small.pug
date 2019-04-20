@@ -1,0 +1,44 @@
+//- Все примеси в этом файле должны начинаться c имени блока (articles-small)
+
+mixin articles-small(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +articles-small('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' articles-small--' + modsList[i].trim();
+      }
+    }
+
+  .articles-small(class=allMods)&attributes(attributes)
+    .articles-small__inner
+      .articles-small__grid
+        block
+
+mixin articles-small__item(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +articles-small__item('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' articles-small__item--' + modsList[i].trim();
+      }
+    }
+
+  .articles-small__item(class=allMods)&attributes(attributes)
+    block

@@ -1,0 +1,24 @@
+//- Все примеси в этом файле должны начинаться c имени блока (back)
+
+mixin back(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +back('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' back--' + modsList[i].trim();
+      }
+    }
+
+  .back(class=allMods)&attributes(attributes)
+    .back__inner
+      a.back__link(href='#')
+        .back__text!= text

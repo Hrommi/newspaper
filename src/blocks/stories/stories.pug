@@ -1,0 +1,43 @@
+//- Все примеси в этом файле должны начинаться c имени блока (stories)
+
+mixin stories(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +stories('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' stories--' + modsList[i].trim();
+      }
+    }
+
+  .stories(class=allMods)&attributes(attributes)
+    .stories__inner
+      .stories__grid
+        block
+
+mixin stories__item(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +stories__item('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' stories__item--' + modsList[i].trim();
+      }
+    }
+
+  .stories__item(class=allMods)&attributes(attributes)
+    block

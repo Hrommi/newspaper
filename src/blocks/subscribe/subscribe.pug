@@ -1,0 +1,64 @@
+//- Все примеси в этом файле должны начинаться c имени блока (subscribe)
+
+mixin subscribe(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +subscribe('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' subscribe--' + modsList[i].trim();
+      }
+    }
+
+  .subscribe(class=allMods)&attributes(attributes)
+    .subscribe__inner
+      .subscribe__grid
+        block
+
+mixin subscribe__item( mods)
+
+  //- Принимает:
+  //-   title    {string} - заголовок
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +subscribe__item('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' subscribe__item--' + modsList[i].trim();
+      }
+    }
+
+  .subscribe__item(class=allMods)&attributes(attributes)
+    block
+
+mixin subscribe__title(title, mods)
+
+  //- Принимает:
+  //-   title    {string} - заголовок
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +subscribe__title('Заголовок', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' subscribe__title--' + modsList[i].trim();
+      }
+    }
+
+  .subscribe__title(class=allMods)&attributes(attributes)!= title

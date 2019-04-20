@@ -9,6 +9,10 @@
   display: block;
   margin-bottom: $typo-margin-vertical;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   &__name {
     @include field-name;
   }
@@ -20,12 +24,28 @@
   &__input {
     @include field-text;
 
+    #{$block-name}--light & {
+
+      @media (min-width: $screen-md) {
+        border: 1px solid $gray-light;
+        box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+      }
+    }
+
     @at-root textarea#{&} {
       $textarea-height: ($line-height * 2) + ($field-padding-vertical * 2);
 
-      height: auto;
+      height: 49px;
       min-height: calc(#{$textarea-height} + 2px);
-      resize: vertical;
+      resize: none;
+
+      @media (min-width: $screen-md) {
+        height: 210px;
+      }
+
+      @media (min-width: $screen-lg) {
+        height: 280px;
+      }
     }
   }
 

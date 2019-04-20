@@ -13,13 +13,15 @@ let config = {
   'addStyleBefore': [
     'src/scss/variables.scss',
     'src/scss/mixins.scss',
+    '../../node_modules/owl.carousel2/dist/assets/owl.carousel.min.css',
     // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addStyleAfter': [
     // 'src/scss/print.scss',
   ],
   'addJsBefore': [
-    // 'somePackage/dist/somePackage.js', // для 'node_modules/somePackage/dist/somePackage.js',
+    '../../node_modules/jquery/src/jquery.js',
+    '../../node_modules/owl.carousel2/dist/owl.carousel.min.js',
   ],
   'addJsAfter': [
     './script.js',

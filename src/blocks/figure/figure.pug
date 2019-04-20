@@ -1,0 +1,24 @@
+//- Все примеси в этом файле должны начинаться c имени блока (figure)
+
+mixin figure(image, text, mods)
+
+  //- Принимает:
+  //-   image   {string} - текст
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +figure('/image.jpg', 'Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' figure--' + modsList[i].trim();
+      }
+    }
+
+  figure.figure(class=allMods)&attributes(attributes)
+    img.figure__image(src=image, alt='')
+    figcaption.figure__caption!= text

@@ -1,0 +1,38 @@
+//- Все примеси в этом файле должны начинаться c имени блока (story)
+
+mixin story(date, views, title, subtitle, text, image, isSmall, mods)
+
+  //- Принимает:
+  //-   date     {string} - дата публикации
+  //-   views    {string} - количество просморов
+  //-   title    {string} - заголовок
+  //-   subtitle {string} - подзаголовок
+  //-   text     {string} - текст
+  //-   image    {string} - изображение
+  //-   isSmall  {bool} -   маленькая кнопка
+  //-   mods     {string} - список модификаторов
+  //- Вызов:
+        +story('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' story--' + modsList[i].trim();
+      }
+    }
+
+  .story(class=allMods, style='background-image: url(' + image + ');')&attributes(attributes)
+    .story__inner
+      +publication-data(date, views)(class='story__publication-data')
+      .story__title!= title
+      .story__subtitle!= subtitle
+      .story__collapse
+        .story__text!= text
+        .story__button
+          if (isSmall)
+            +button('Читать историю', 'invert, small-desktop')(href='#')
+          else
+            +button('Читать историю', 'invert')(href='#')

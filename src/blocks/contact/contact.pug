@@ -1,0 +1,43 @@
+//- Все примеси в этом файле должны начинаться c имени блока (contact)
+
+mixin contact(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +contact('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' contact--' + modsList[i].trim();
+      }
+    }
+
+  .contact(class=allMods)&attributes(attributes)
+    .contact__inner
+      .contact__grid
+        block
+
+mixin contact__item(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +contact__item('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' contact__item--' + modsList[i].trim();
+      }
+    }
+
+  .contact__item(class=allMods)&attributes(attributes)
+    block

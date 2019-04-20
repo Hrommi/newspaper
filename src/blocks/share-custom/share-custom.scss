@@ -1,0 +1,70 @@
+// В этом файле должны быть стили для БЭМ-блока share-custom, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.share-custom {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin-bottom: 20px;
+
+  @media (min-width: $screen-lg) {
+    margin-bottom: 32px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: -16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 16px 16px 0 0;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    background-color: $gray;
+    border-radius: $border-radius;
+    text-decoration: none;
+
+    #{$block-name}__item--vk & {
+      background-color: $color-vk;
+    }
+
+    #{$block-name}__item--fb & {
+      background-color: $color-fb;
+    }
+
+    #{$block-name}__item--tw & {
+      background-color: $color-tw;
+    }
+
+    #{$block-name}__item--telegram & {
+      background-color: $color-telegram;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: 50px;
+  }
+
+  &__text {
+    margin-right: 20px;
+    font-size: 24px;
+    color: $text-color-invert;
+  }
+}

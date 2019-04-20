@@ -1,0 +1,144 @@
+// В этом файле должны быть стили для БЭМ-блока button, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.button {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0;
+  border-radius: $border-radius;
+  border: 2px solid currentColor;
+  padding: 8px 36px;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: none;
+  text-align: center;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: $line-height;
+  text-decoration: none;
+  text-transform: none;
+  color: $text-color;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  @media (min-width: $screen-lg) {
+    padding: 12px 56px;
+    font-size: 19px;
+    font-weight: 700;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $link-color--hover;
+  }
+
+  // &:visited {
+  //   color: $text-color;
+  // }
+
+  &:active,
+  &:focus {
+    @include field-focus;
+  }
+
+  svg {
+    display: block;
+  }
+
+  &--disabled,
+  &:disabled {
+    opacity: $opacity;
+    cursor: not-allowed;
+    color: $text-color;
+    background-color: $gray-lightest;
+    // border-color: $gray-lighter;
+
+    @at-root a.button--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &--small {
+    padding: 4px 20px;
+    border-width: 1px;
+    font-size: $font-size-sm;
+    font-weight: 400;
+
+    @media (min-width: $screen-lg) {
+      padding: 4px 16px;
+      font-size: $font-size;
+      font-weight: 400;
+    }
+  }
+
+  &--small-desktop {
+
+    @media (min-width: $screen-lg) {
+      padding: 4px 16px;
+      border-width: 1px;
+      font-size: $font-size;
+      font-weight: 400;
+    }
+  }
+
+  &--large {
+    padding: 12px 32px;
+  }
+
+  &--invert {
+    color: $text-color-invert;
+
+    &:hover,
+    &:focus {
+      color: $text-color-invert;
+    }
+  }
+
+  &--link {
+    padding: 0;
+    border: 0;
+
+    @media (min-width: $screen-lg) {
+      padding: 0;
+      font-weight: 600;
+    }
+  }
+
+  &--icon {
+    padding-left: 12px;
+    padding-right: 12px;
+
+    @media (min-width: $screen-lg) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  // &__icon {
+  //   display: inline-block;
+  //   vertical-align: middle;
+  // }
+
+
+
+  &--main {
+    color: $text-color-invert;
+    background-color: $color-main;
+    border-color: $color-main;
+
+    &:hover,
+    &:focus {
+      color: $text-color-invert;
+      background-color: darken($color-main, 10%);
+      border-color: darken($color-main, 12%);
+    }
+  }
+}

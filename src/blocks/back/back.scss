@@ -1,0 +1,22 @@
+// В этом файле должны быть стили для БЭМ-блока back, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.back {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__text {
+    font-size: $font-size;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    @media (min-width: $screen-lg) {
+      font-size: 20px;
+    }
+  }
+}

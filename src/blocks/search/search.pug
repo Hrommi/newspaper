@@ -18,8 +18,14 @@ mixin search( mods)
     }
 
   .search(class=allMods)&attributes(attributes)
-    .search__inner
+    form.search__inner
       .search__icon
         svg(width='100%', height='100%')
           use(xlink:href='/img/sprite.svg#search')
-      input.search__input(type='text')
+      button.search__submit
+        svg(width='100%', height='100%')
+          use(xlink:href='/img/sprite.svg#search-light')
+      input.search__input(type='text', placeholder='Поиск')
+      .search__icon.search__icon--close
+        svg(width='100%', height='100%')
+          use(xlink:href='/img/sprite.svg#close')

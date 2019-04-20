@@ -14,17 +14,18 @@
   background: transparent;
   user-select: none;
   cursor: pointer;
+  color: inherit;
+  outline: none;
 
   > span { // stylelint-disable-line  selector-combinator-blacklist
     display: inline-block;
     position: relative;
     width: 100%;
-    height: $toggler-part-height;
+    border-bottom: $toggler-part-height solid currentColor;
     vertical-align: middle;
     font-size: 0;
-    color: transparent;
-    background: $toggler-part-bg-color;
-    transition: background $transition-time $transition-time;
+    color: inherit;
+    transition: border-color $transition-time $transition-time;
 
     &:before,
     &:after {
@@ -32,8 +33,7 @@
       position: absolute;
       left: 0;
       width: 100%;
-      height: $toggler-part-height;
-      background: $toggler-part-bg-color;
+      border-bottom: $toggler-part-height solid currentColor;
       transform-origin: 50% 50%;
       transition: top $transition-time $transition-time, transform $transition-time;
     }
@@ -50,8 +50,8 @@
   &--close {
 
     > span { // stylelint-disable-line  selector-combinator-blacklist
-      transition: background $transition-time 0s;
-      background: transparent;
+      transition: border-color $transition-time 0s;
+      border-color: transparent;
 
       &:before,
       &:after {

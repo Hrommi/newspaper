@@ -1,0 +1,76 @@
+// В этом файле должны быть стили для БЭМ-блока stories, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.stories {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__inner {
+    margin: 0 ($grid-gutter-width / -2);
+
+    @media (min-width: $screen-lg) {
+      margin: 0;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    @media (min-width: $screen-lg) {
+      display: grid;
+      grid-gap: 4px;
+      grid-template-columns: 33.1% 33.1% 33.1%;
+      grid-template-rows: auto;
+      grid-template-areas:
+        'first first first'
+        'first first first'
+        'second second third'
+        'second second fourth';
+      overflow: inherit;
+    }
+  }
+
+  &__item {
+    flex: 0 0 (236px + $grid-gutter-width / 2);
+    max-width: (236px + $grid-gutter-width / 2);
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
+
+    @media (min-width: $screen-lg) {
+      max-width: 100%;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    &:nth-child(1) {
+
+      @media (min-width: $screen-lg) {
+        grid-area: first;
+      }
+    }
+
+    &:nth-child(2) {
+
+      @media (min-width: $screen-lg) {
+        grid-area: second;
+      }
+    }
+
+    &:nth-child(3) {
+
+      @media (min-width: $screen-lg) {
+        grid-area: third;
+      }
+    }
+
+    &:nth-child(4) {
+
+      @media (min-width: $screen-lg) {
+        grid-area: fourth;
+      }
+    }
+  }
+}

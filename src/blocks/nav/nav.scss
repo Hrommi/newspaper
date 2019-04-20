@@ -1,0 +1,73 @@
+// В этом файле должны быть стили для БЭМ-блока nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.nav {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: $screen-md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    margin: 0 0 8px;
+
+    @media (min-width: $screen-md) {
+      margin: 0 8px;
+    }
+
+    @media (min-width: $screen-lg) {
+      margin: 0 20px;
+    }
+
+    &:first-child {
+
+      @media (min-width: $screen-md) {
+        margin-left: 0;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      @media (min-width: $screen-md) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-size: $font-size-h2;
+    font-weight: 700;
+    color: inherit;
+    text-decoration: none;
+    transition: none;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size;
+      font-weight: 400;
+    }
+
+    &:hover {
+      color: inherit;
+    }
+
+    #{$block-name}__item--stories & {
+
+      @media (min-width: $screen-md) {
+        background: linear-gradient(100deg, #ffa800 0%, #ff0000 30%, #0077ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}

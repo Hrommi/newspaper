@@ -1,0 +1,57 @@
+// В этом файле должны быть стили для БЭМ-блока blockquote, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.blockquote {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  margin: 0 0 20px ($grid-gutter-width / -2);
+  padding: 28px 0 28px (($grid-gutter-width / 2) + 28px);
+
+  @media (min-width: $screen-lg) {
+    margin-bottom: 32px;
+    margin-left: 0;
+    padding: 40px 0 40px 44px;
+  }
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 16px;
+    width: 30px;
+    height: 26px;
+    background: url(../img/quote.svg) center center / cover no-repeat;
+
+    // {
+    //   width: 34px;
+    //   height: 28px;
+    // }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    font-size: $font-size-h3;
+    font-style: italic;
+
+    @media (min-width: $screen-lg) {
+      margin-bottom: 32px;
+      font-size: $font-size-h2;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__author {
+    font-size: $font-size;
+
+    b {
+      font-size: $font-size-h3;
+    }
+  }
+}

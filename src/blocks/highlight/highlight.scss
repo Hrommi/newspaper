@@ -1,0 +1,51 @@
+// В этом файле должны быть стили для БЭМ-блока highlight, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.highlight {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin: 0 ($grid-gutter-width / -2) 20px;
+  padding: 20px ($grid-gutter-width / 2) 28px;
+  background-color: #f4eb72;
+
+  @media (min-width: $screen-lg) {
+    margin-bottom: 32px;
+    padding-top: 26px;
+    padding-bottom: 32px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a:not([class]) {
+    color: $link-color--secondary;
+  }
+
+  .heading__title {
+    max-width: 100%;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    font-size: $font-size-h3;
+
+    @media (min-width: $screen-lg) {
+      margin-bottom: 28px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    font-size: $font-size-h3;
+
+    @media (min-width: $screen-lg) {
+      font-size: 20px;
+    }
+  }
+}

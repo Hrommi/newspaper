@@ -1,0 +1,44 @@
+//- Все примеси в этом файле должны начинаться c имени блока (question)
+
+mixin question(text, image, name, position, date, mods)
+
+  //- Принимает:
+  //-   text    {string} - вопрос
+  //-   image   {string} - изображение
+  //-   name    {string} - имя эксперта
+  //-   position{string} - должность эксперта
+  //-   date    {string} - дата публикации
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +question('Текст', '/image.png', 'Имя', 'Должность', '2 марта', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' question--' + modsList[i].trim();
+      }
+    }
+
+  .question(class=allMods)&attributes(attributes)
+    .question__inner
+      .question__text
+        | Училась иностранкой, стала гражданкой&nbsp;РФ: положен&nbsp;ли вычет на&nbsp;обучение?
+      .question__expert.question-expert
+        .question-expert__media
+          img.question-expert__image(src='img/question-expert-image-1.jpg', alt='')
+        .question-expert__content
+          .question-expert__name
+            | Андрей Фоменко,
+          .question-expert__position
+            | консультант НФ
+      .question__info
+        +publication-data(date)(class='question__publication-data')
+        a.question__link.question-link(href='#')
+          .question-link__icon
+            svg(width='100%', height='100%')
+              use(xlink:href='/img/sprite.svg#faq')
+          .question-link__text
+            | Узнать ответ и&nbsp;обсудить

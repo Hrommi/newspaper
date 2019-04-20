@@ -1,0 +1,14 @@
+// В этом файле должны быть стили для БЭМ-блока step, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.step {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__number {
+    margin-bottom: 4px;
+    font-size: 15px;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,56 @@
+// В этом файле должны быть стили для БЭМ-блока person, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.person {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    @media (min-width: $screen-md) {
+      display: block;
+    }
+  }
+
+  &__media {
+    flex-shrink: 0;
+    width: 70px;
+    margin-right: 20px;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+
+  &__name {
+    font-size: $font-size-h3;
+    font-weight: 700;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size;
+    }
+  }
+
+  &__info {
+    max-width: 180px;
+    font-size: $font-size;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-sm;
+    }
+  }
+}

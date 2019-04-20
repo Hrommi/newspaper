@@ -1,0 +1,27 @@
+//- Все примеси в этом файле должны начинаться c имени блока (note)
+
+mixin note(image, text, mods)
+
+  //- Принимает:
+  //-   image   {string} - изображение
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +note('/image.jpg', 'Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' note--' + modsList[i].trim();
+      }
+    }
+
+  .note(class=allMods)&attributes(attributes)
+    .note__inner
+      .note__media
+        img.note__image(src=image, alt='')
+      .note__text
+        a(href='#')!= text

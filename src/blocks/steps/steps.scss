@@ -1,0 +1,43 @@
+// В этом файле должны быть стили для БЭМ-блока steps, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.steps {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  max-width: 980px;
+
+  &:before {
+    display: block;
+    content: '';
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-top: 1px solid currentColor;
+    opacity: 0.4;
+  }
+
+  &__inner {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  &__grid {
+
+    @media (min-width: $screen-lg) {
+      @include row();
+      margin-top: -20px;
+    }
+  }
+
+  &__item {
+    @include col(lg, 3);
+
+    @media (min-width: $screen-lg) {
+      margin-top: 20px;
+    }
+  }
+}

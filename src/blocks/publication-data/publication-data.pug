@@ -1,0 +1,31 @@
+//- Все примеси в этом файле должны начинаться c имени блока (publication-data)
+
+mixin publication-data(date, views, mods)
+
+  //- Принимает:
+  //-   date    {string} - дата публикации
+  //-   views   {string} - количество просморов
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +publication-data('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' publication-data--' + modsList[i].trim();
+      }
+    }
+
+  .publication-data(class=allMods)&attributes(attributes)
+    .publication-data__inner
+      .publication-data__item
+        .publication-data__text!= date
+      if (views)
+        .publication-data__item
+          .publication-data__icon
+            svg(width='100%', height='100%')
+              use(xlink:href='/img/sprite.svg#eye')
+          .publication-data__text!= views

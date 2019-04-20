@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (share)
+
+mixin share(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +share('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' share--' + modsList[i].trim();
+      }
+    }
+
+  .share(class=allMods)&attributes(attributes)
+    .share__inner
+      img(src='img/share-remove.png', alt='Заменить на сервис шаринга')

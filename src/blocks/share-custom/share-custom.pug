@@ -1,0 +1,46 @@
+//- Все примеси в этом файле должны начинаться c имени блока (share-custom)
+
+mixin share-custom(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +share-custom('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' share-custom--' + modsList[i].trim();
+      }
+    }
+
+  .share-custom(class=allMods)&attributes(attributes)
+    ul.share-custom__list
+      block
+
+mixin share-custom__item(link, image, mods)
+
+  //- Принимает:
+  //-   link    {string} - ссылка
+  //-   image   {string} - ссылка
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +share-custom__item('#', '/image.jpg', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' share-custom__item--' + modsList[i].trim();
+      }
+    }
+
+  li.share-custom__item(class=allMods)&attributes(attributes)
+    a.share-custom__link(href=link)
+      img.share-custom__image(src=image, alt='')
+      block

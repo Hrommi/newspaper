@@ -1,0 +1,25 @@
+//- Все примеси в этом файле должны начинаться c имени блока (blockquote)
+
+mixin blockquote(text, author, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   author  {string} - автор
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +blockquote('Текст', 'Автор', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' blockquote--' + modsList[i].trim();
+      }
+    }
+
+  blockquote.blockquote(class=allMods)&attributes(attributes)
+    .blockquote__inner
+      .blockquote__text!= text
+      .blockquote__author!= author

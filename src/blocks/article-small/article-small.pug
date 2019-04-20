@@ -1,0 +1,30 @@
+//- Все примеси в этом файле должны начинаться c имени блока (article-small)
+
+mixin article-small(image, title, date, views, mods)
+
+  //- Принимает:
+  //-   image   {string} - изображение
+  //-   title   {string} - заголовок
+  //-   date    {string} - дата публикации
+  //-   views   {string} - количество просморов
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +article-small('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' article-small--' + modsList[i].trim();
+      }
+    }
+
+  article.article-small(class=allMods)&attributes(attributes)
+    .article-small__inner
+      .article-small__media
+        img.article-small__image(src=image, alt='')
+      .article-small__content
+        a.article-small__title(href='#')!= title
+        +publication-data(date, views)(class='article-small__publication-data')

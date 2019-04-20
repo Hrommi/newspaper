@@ -1,0 +1,30 @@
+// В этом файле должны быть стили для БЭМ-блока note, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.note {
+
+  $block-name:                &; // #{$block-name}__element
+
+  max-width: 200px;
+
+  a {
+    color: $link-color--secondary;
+  }
+
+  &__media {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    display: block;
+  }
+
+  &__text {
+    font-size: $font-size;
+  }
+}

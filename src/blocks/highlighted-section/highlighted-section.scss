@@ -1,0 +1,47 @@
+// В этом файле должны быть стили для БЭМ-блока highlighted-section, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.highlighted-section {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin: 20px ($grid-gutter-width / -2) 32px;
+  padding: 20px ($grid-gutter-width / 2);
+  background-color: $body-bg-gray;
+
+  @media (min-width: $screen-lg) {
+    margin-top: 56px;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: $screen-xl) {
+    border-radius: $border-radius;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__inner {
+
+    @media (min-width: $screen-lg) {
+      position: relative;
+    }
+  }
+
+  &__button {
+    margin-top: 20px;
+
+    @media (min-width: $screen-lg) {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-top: 4px;
+    }
+  }
+}

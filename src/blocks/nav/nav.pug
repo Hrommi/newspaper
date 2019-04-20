@@ -1,0 +1,44 @@
+//- Все примеси в этом файле должны начинаться c имени блока (nav)
+
+mixin nav(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +nav('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' nav--' + modsList[i].trim();
+      }
+    }
+
+  nav.nav(class=allMods)&attributes(attributes)
+    ul.nav__list
+      block
+
+mixin nav__item(text, link, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   link    {string} - ссылка
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +nav__item('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' nav__item--' + modsList[i].trim();
+      }
+    }
+
+  li.nav__item(class=allMods)&attributes(attributes)
+    a.nav__link(href=link)!= text

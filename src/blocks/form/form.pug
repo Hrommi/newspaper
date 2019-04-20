@@ -61,5 +61,6 @@ mixin fieldset(legend, mods)
     }
 
   fieldset.form__fieldset(class=allMods)&attributes(attributes)
-    legend.form__legend!= legend
+    if(legend)
+      legend.form__legend!= legend
     block

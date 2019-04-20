@@ -1,0 +1,27 @@
+//- Все примеси в этом файле должны начинаться c имени блока (trumpet-call)
+
+mixin trumpet-call(text, button, image, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   button  {string} - текст кнопки
+  //-   image   {string} - фоновое изображение
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +trumpet-call('Текст', 'Кнопка', '/image.png', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' trumpet-call--' + modsList[i].trim();
+      }
+    }
+
+  .trumpet-call(class=allMods)&attributes(attributes)
+    .trumpet-call__inner(style='background-image: url(' + image + ');')
+      .trumpet-call__text!= text
+      .trumpet-call__button
+        +button(button, 'invert')(href='#')

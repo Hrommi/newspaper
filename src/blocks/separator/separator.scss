@@ -1,0 +1,24 @@
+// В этом файле должны быть стили для БЭМ-блока separator, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.separator {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &--mobile {
+
+    @media (min-width: $screen-lg) {
+      display: none;
+    }
+  }
+
+  &__inner {
+    @include container();
+  }
+
+  &__line {
+    margin: 0;
+    border-color: $gray-light;
+  }
+}

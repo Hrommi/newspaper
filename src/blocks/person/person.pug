@@ -1,0 +1,30 @@
+//- Все примеси в этом файле должны начинаться c имени блока (person)
+
+mixin person(name, info, image, mods)
+
+  //- Принимает:
+  //-   name    {string} - имя
+  //-   info    {string} - информация
+  //-   image   {string} - фотография
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +person('Имя', 'Информация', '/image.jpg', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' person--' + modsList[i].trim();
+      }
+    }
+
+  .person(class=allMods)&attributes(attributes)
+    .person__inner
+      if (image)
+        .person__media
+          img.person__image(src=image, alt=name)
+      .person__content
+        .person__name!= name
+        .person__info!= info

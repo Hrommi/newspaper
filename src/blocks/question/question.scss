@@ -1,0 +1,79 @@
+// В этом файле должны быть стили для БЭМ-блока question, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.question {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__text {
+    max-width: 400px;
+    margin-bottom: 18px;
+
+    @media (min-width: $screen-lg) {
+      font-size: 20px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__expert {
+    margin-bottom: 16px;
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+  }
+
+  &__publication-data {
+    margin-right: 32px;
+  }
+}
+
+.question-expert {
+  display: flex;
+  align-items: center;
+
+  &__media {
+    flex-shrink: 0;
+    width: 50px;
+    margin-right: 14px;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    border-radius: $border-radius;
+  }
+
+  &__name,
+  &__position {
+    font-size: $font-size-sm;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+}
+
+.question-link {
+  display: flex;
+
+  &__icon {
+    width: 21px;
+    height: 20px;
+    margin-right: 6px;
+    opacity: 0.8;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    font-weight: 600;
+  }
+}

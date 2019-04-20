@@ -1,0 +1,144 @@
+// В этом файле должны быть стили для БЭМ-блока hero, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.hero {
+
+  $block-name:                &; // #{$block-name}__element
+
+  @media (min-width: $screen-lg) {
+    background: #289ce0;
+    background: linear-gradient(to right, #289ce0 0%, #00679f 100%);
+  }
+
+  &--single {
+
+    #{$block-name}__box {
+
+      @media (min-width: $screen-lg) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    #{$block-name}__content {
+
+      @media (min-width: $screen-lg) {
+        padding-bottom: 40px;
+      }
+    }
+
+    #{$block-name}__image {
+
+      @media (min-width: $screen-lg) {
+        bottom: 80px;
+      }
+    }
+
+    #{$block-name}__steps {
+
+      @media (min-width: $screen-lg) {
+        margin-top: auto;
+      }
+    }
+  }
+
+  &__inner {
+    @include container();
+  }
+
+  &__box {
+    position: relative;
+    min-height: 190px;
+    border-radius: $border-radius;
+    background: #289ce0;
+    background: linear-gradient(to right, #289ce0 0%, #00679f 100%);
+    color: $text-color-invert;
+
+    @media (min-width: $screen-lg) {
+      min-height: 580px;
+      background: transparent;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__content {
+    position: relative;
+    max-width: 580px;
+    padding: 18px 22px;
+
+    @media (min-width: $screen-lg) {
+      padding: 100px 0;
+    }
+  }
+
+  &__publication-data {
+    margin-bottom: 12px;
+  }
+
+  &__title {
+
+    @media (min-width: $screen-lg) {
+      font-size: 40px;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $screen-lg) {
+      display: block;
+      margin-bottom: 48px;
+      max-width: 420px;
+      font-size: 21px;
+    }
+  }
+
+  &__button {
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    @media (min-width: $screen-lg) {
+      width: auto;
+      height: auto;
+      opacity: 1;
+    }
+
+    .button:after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      @media (min-width: $screen-lg) {
+        display: none;
+      }
+    }
+  }
+
+  &__steps {
+    display: none;
+
+    @media (min-width: $screen-lg) {
+      display: block;
+    }
+  }
+}

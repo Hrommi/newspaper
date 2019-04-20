@@ -1,0 +1,16 @@
+// В этом файле должны быть стили для БЭМ-блока carousel, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.carousel {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__inner {
+    padding: 8px 0 50px;
+
+    @media (min-width: $screen-lg) {
+      padding: 0 0 22px;
+    }
+  }
+}

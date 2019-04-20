@@ -1,0 +1,43 @@
+//- Все примеси в этом файле должны начинаться c имени блока (questions)
+
+mixin questions(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +questions('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' questions--' + modsList[i].trim();
+      }
+    }
+
+  .questions(class=allMods)&attributes(attributes)
+    .questions__inner
+      .questions__grid
+        block
+
+mixin questions__item(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +questions__item('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' questions__item--' + modsList[i].trim();
+      }
+    }
+
+  .questions__item(class=allMods)&attributes(attributes)
+    block

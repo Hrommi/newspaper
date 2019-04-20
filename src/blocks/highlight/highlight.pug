@@ -1,0 +1,29 @@
+//- Все примеси в этом файле должны начинаться c имени блока (highlight)
+
+mixin highlight(title, text, info, button, mods)
+
+  //- Принимает:
+  //-   title   {string} - заголовок
+  //-   text    {string} - текст
+  //-   info    {string} - подпись
+  //-   button  {string} - кнопка
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +highlight('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' highlight--' + modsList[i].trim();
+      }
+    }
+
+  .highlight(class=allMods)&attributes(attributes)
+    .highlight__inner
+      +heading('h2', title)(class='highlight__heading')
+      .highlight__text!= text
+      .highlight__info!= info
+      block

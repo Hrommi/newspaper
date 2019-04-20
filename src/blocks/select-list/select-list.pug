@@ -1,0 +1,49 @@
+//- Все примеси в этом файле должны начинаться c имени блока (select-list)
+
+mixin select-list(title, mods)
+
+  //- Принимает:
+  //-   title    {string} - заголовок
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +select-list('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' select-list--' + modsList[i].trim();
+      }
+    }
+
+  .select-list(class=allMods)&attributes(attributes)
+    .select-list__inner
+      .select-list__header
+        .select-list__title!= title
+        .select-list__icon
+          svg(width='100%', height='100%')
+            use(xlink:href='/img/sprite.svg#dropdown')
+      .select-list__content
+        block
+
+mixin select-list__item(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +select-list__item('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' select-list__item--' + modsList[i].trim();
+      }
+    }
+
+  a.select-list__item(class=allMods, href='#')&attributes(attributes)!= text

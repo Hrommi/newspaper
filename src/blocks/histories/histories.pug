@@ -1,0 +1,43 @@
+//- Все примеси в этом файле должны начинаться c имени блока (histories)
+
+mixin histories(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +histories('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' histories--' + modsList[i].trim();
+      }
+    }
+
+  .histories(class=allMods)&attributes(attributes)
+    .histories__inner
+      .histories__grid
+        block
+
+mixin histories__item(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +histories__item('some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' histories__item--' + modsList[i].trim();
+      }
+    }
+
+  .histories__item(class=allMods)&attributes(attributes)
+    block

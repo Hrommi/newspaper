@@ -1,0 +1,21 @@
+// В этом файле должны быть стили для БЭМ-блока history, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.text {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin: 0 0 20px;
+  padding: 28px 20px;
+  font-size: 17px;
+
+  @media (min-width: $screen-lg) {
+    margin-bottom: 32px;
+    padding: 28px 48px;
+  }
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
+}

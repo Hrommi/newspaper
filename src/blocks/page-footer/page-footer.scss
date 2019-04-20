@@ -10,15 +10,23 @@
 
   &__grid {
     @include row();
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding-top: 14px;
     padding-bottom: 18px;
+
+    @media (min-width: $screen-lg) {
+      padding-top: 40px;
+    }
   }
 
   &__item {
     @include col();
     padding-top: 12px;
     padding-bottom: 12px;
+
+    @media (min-width: $screen-md) {
+      flex: none;
+    }
   }
 }

@@ -1,0 +1,34 @@
+// В этом файле должны быть стили для БЭМ-блока owl-carousel, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.owl-carousel {
+
+  $block-name:                &; // #{$block-name}__element
+
+  .owl-dots {
+    position: absolute;
+    right: 0;
+    bottom: 22px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $screen-lg) {
+      bottom: 52px;
+    }
+  }
+
+  .owl-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
+    border: solid 1px $text-color-invert;
+    border-radius: 50%;
+
+    &.active {
+      background: $text-color-invert;
+    }
+  }
+}

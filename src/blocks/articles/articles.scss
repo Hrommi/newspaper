@@ -1,0 +1,53 @@
+// В этом файле должны быть стили для БЭМ-блока articles, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.articles {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &--narrow {
+
+    #{$block-name}__grid {
+
+      @media (min-width: $screen-lg) {
+        @include row($grid-gutter-width, $grid-gutter-width, $grid-gutter-width, 20px, 20px);
+      }
+    }
+
+    #{$block-name}__item {
+      @include col(lg, 4, $grid-columns, 20px);
+    }
+  }
+
+  &__inner {
+    margin: 0 ($grid-gutter-width / -2);
+
+    @media (min-width: $screen-lg) {
+      margin: 0;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    @media (min-width: $screen-lg) {
+      @include row();
+      margin-top: $grid-gutter-width * -1;
+    }
+  }
+
+  &__item {
+    flex: 0 0 (236px + $grid-gutter-width / 2);
+    max-width: (236px + $grid-gutter-width / 2);
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
+    @include col(lg, 3);
+
+    @media (min-width: $screen-lg) {
+      margin-top: $grid-gutter-width;
+    }
+  }
+}

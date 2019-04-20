@@ -1,0 +1,71 @@
+// В этом файле должны быть стили для БЭМ-блока select-list, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.select-list {
+
+  $block-name:                &; // #{$block-name}__element
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid $gray-light;
+
+    @media (min-width: $screen-md) {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-sm;
+    color: $gray;
+  }
+
+  &__icon {
+    width: 15px;
+    height: 9px;
+    opacity: 0.8;
+    transition: transform 0.3s;
+
+    svg {
+      display: block;
+    }
+
+    #{$block-name}--open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+
+    @media (min-width: $screen-md) {
+      display: block;
+      max-height: 210px;
+      overflow-y: auto;
+    }
+
+    @media (min-width: $screen-lg) {
+      max-height: 280px;
+    }
+
+    #{$block-name}--open & {
+      max-height: 210px;
+      overflow-y: auto;
+    }
+  }
+
+  &__item {
+    display: block;
+    margin-top: 4px;
+    padding: 4px 16px;
+    border: 1px solid $gray-light;
+    border-radius: $border-radius;
+    background: $gray-lighter;
+    text-decoration: none;
+  }
+}

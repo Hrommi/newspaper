@@ -1,0 +1,195 @@
+// В этом файле должны быть стили для БЭМ-блока article, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.article {
+
+  $block-name:                &; // #{$block-name}__element
+
+  position: relative;
+  height: 100%;
+
+  &--dark {
+    min-height: 280px;
+    color: $text-color-invert;
+
+    @media (min-width: $screen-lg) {
+      min-height: 372px;
+    }
+
+    #{$block-name}__inner {
+      height: 100%;
+    }
+
+    #{$block-name}__media {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-bottom: 0;
+      align-items: flex-end;
+
+      &:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: $border-radius;
+        background: rgba($black, 0.6);
+      }
+    }
+
+    #{$block-name}__content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 24px 16px;
+
+      @media (min-width: $screen-lg) {
+        padding: 16px 24px 24px;
+      }
+    }
+
+    #{$block-name}__hint {
+      margin-top: auto;
+    }
+
+    #{$block-name}__title {
+      margin-top: auto;
+      color: inherit;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    #{$block-name}__hint + #{$block-name}__title {
+      margin-top: 0;
+    }
+
+    #{$block-name}__text {
+      flex-grow: 1;
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.9s cubic-bezier(0, 1, 0, 1);
+    }
+
+    &:hover #{$block-name}__text {
+      max-height: 360px;
+      transition: max-height 0.6s ease-in-out;
+    }
+
+    #{$block-name}__publication-data {
+      color: inherit;
+    }
+  }
+
+  &--compilation {
+
+    @media (min-width: $screen-lg) {
+      min-height: 280px;
+    }
+  }
+
+  &--highlighted {
+
+    @media (min-width: $screen-lg) {
+      padding: 20px 24px;
+      border-radius: $border-radius;
+      background: $body-bg;
+    }
+
+    #{$block-name}__title:after {
+      display: none;
+    }
+
+    #{$block-name}__text {
+      display: block;
+    }
+  }
+
+  &__hashtag {
+    margin-bottom: 20px;
+    font-size: $font-size-sm;
+  }
+
+  &__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    border-radius: $border-radius;
+    background: #289ce0;
+    background: linear-gradient(to right, #289ce0 0%, #00679f 100%);
+
+    #{$block-name}--orange & {
+      background: #ffde00;
+      background: linear-gradient(to right, #ffde00 0%, #ba790a 100%);
+    }
+
+    #{$block-name}--purple & {
+      background: #955efb;
+    }
+  }
+
+  &__image {
+    display: block;
+    max-width: 100%;
+    max-height: 164px;
+
+    @media (min-width: $screen-lg) {
+      max-height: none;
+    }
+  }
+
+  &__hint {
+    font-size: 15px;
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 4px;
+    font-size: $font-size-h3;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    @media (min-width: $screen-lg) {
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    display: none;
+    margin-bottom: 8px;
+    font-size: $font-size-sm;
+
+    @media (min-width: $screen-lg) {
+      display: block;
+    }
+  }
+
+  &__publication-data {
+    color: $text-color-muted;
+  }
+}

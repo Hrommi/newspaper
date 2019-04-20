@@ -1,0 +1,43 @@
+//- Все примеси в этом файле должны начинаться c имени блока (article)
+
+mixin article(image, title, date, views, mods, isTagged)
+
+  //- Принимает:
+  //-   image    {string} - изображение
+  //-   title    {string} - заголовок
+  //-   date     {string} - дата публикации
+  //-   views    {string} - количество просморов
+  //-   mods     {string} - список модификаторов
+  //-   isTagged {bool} - флаг карточки с фоном
+  //- Вызов:
+        +article('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' article--' + modsList[i].trim();
+      }
+    }
+
+
+  article.article(class=allMods)&attributes(attributes)
+    .article__inner
+      .article__media
+        img.article__image(src=image, alt='')
+      .article__content
+        if (isTagged !== 'undefined' && isTagged)
+          .article__hashtag
+            | #НеПопастьНаБабки
+        if (isTagged === false)
+          .article__hint
+            | 10 статей
+        a.article__title(href='#')!= title
+        if (isTagged !== 'undefined' && isTagged)
+          .article__text
+            | Устоит&nbsp;ли ваш бизнес, если настанут тяжелые времена? Чтобы получить ответ, рассчитайте операционный рычаг.
+        if (date && views && isTagged !== false)
+          +publication-data(date, views)(class='article__publication-data')
+        block

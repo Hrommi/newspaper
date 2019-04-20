@@ -1,0 +1,37 @@
+//- Все примеси в этом файле должны начинаться c имени блока (hero)
+
+mixin hero(date, views, title, text, image, link, mods)
+
+  //- Принимает:
+  //-   date    {string} - дата публикации
+  //-   views   {string} - количество просморов
+  //-   title   {string} - заголовок
+  //-   text    {string} - текст
+  //-   image   {string} - изображение
+  //-   link    {string} - изображение
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +hero('2 марта', '1&nbsp;502', 'Заголовок', 'Текст', '/image.png', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' hero--' + modsList[i].trim();
+      }
+    }
+
+  article.hero(class=allMods)&attributes(attributes)
+    .hero__inner
+      .hero__box
+        .hero__image(style='background-image: url(' + image + ');')
+        .hero__content
+          +publication-data(date, views)(class='hero__publication-data')
+          h3.hero__title!= title
+          .hero__text!= text
+          if (link)
+            .hero__button
+              +button('Читать статью', 'main')(href=link)
+        block

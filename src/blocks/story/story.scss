@@ -1,0 +1,200 @@
+// В этом файле должны быть стили для БЭМ-блока story, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.story {
+
+  $block-name:                &; // #{$block-name}__element
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  padding: 16px 12px 28px 16px;
+  border-radius: $border-radius;
+  background-color: $text-color;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $text-color-invert;
+
+  @media (min-width: $screen-lg) {
+    min-height: 200px;
+    padding: 32px 40px 40px;
+  }
+
+  &--small-desktop {
+
+    @media (min-width: $screen-lg) {
+      padding: 16px 28px 20px;
+    }
+  }
+
+  &:hover {
+
+    #{$block-name}__publication-data {
+
+      @media (min-width: $screen-lg) {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--first {
+
+    @media (min-width: $screen-lg) {
+      min-height: 400px;
+    }
+
+    #{$block-name}__publication-data {
+
+      @media (min-width: $screen-lg) {
+        opacity: 1;
+      }
+    }
+
+    #{$block-name}__title {
+
+      @media (min-width: $screen-lg) {
+        font-size: 28px;
+      }
+    }
+
+    #{$block-name}__subtitle {
+
+      @media (min-width: $screen-lg) {
+        display: none;
+      }
+    }
+
+    #{$block-name}__collapse {
+
+      @media (min-width: $screen-lg) {
+        max-height: none !important;
+      }
+    }
+
+    #{$block-name}__text {
+
+      @media (min-width: $screen-lg) {
+        font-size: 20px;
+      }
+    }
+
+    #{$block-name}__button {
+
+      @media (min-width: $screen-lg) {
+        margin-top: 40px;
+        margin-bottom: 44px;
+      }
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &__publication-data {
+    margin-bottom: 24px;
+
+    @media (min-width: $screen-lg) {
+      margin-bottom: 8px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-h3;
+    font-weight: 600;
+    margin-bottom: 12px;
+
+    @media (min-width: $screen-lg) {
+      max-width: 620px;
+      margin-top: auto;
+      margin-bottom: 8px;
+      font-size: 23px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    display: none;
+
+    @media (min-width: $screen-lg) {
+      display: block;
+      max-width: 400px;
+      max-height: 160px;
+      overflow: hidden;
+      opacity: $opacity;
+      transition: max-height 0.3s ease-in-out;
+    }
+
+    #{$block-name}:hover & {
+
+      @media (min-width: $screen-lg) {
+        max-height: 0px;
+        transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+      }
+    }
+  }
+
+  &__collapse {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $screen-lg) {
+      flex-grow: 1;
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.9s cubic-bezier(0, 1, 0, 1);
+    }
+
+    #{$block-name}:hover & {
+
+      @media (min-width: $screen-lg) {
+        max-height: 160px;
+        transition: max-height 0.6s ease-in-out;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 32px;
+
+    @media (min-width: $screen-lg) {
+      max-width: 400px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__button {
+    margin-top: auto;
+
+    @media (min-width: $screen-lg) {
+      margin-top: 20px;
+    }
+
+    #{$block-name}--small-desktop & {
+
+      @media (min-width: $screen-lg) {
+        margin-top: 0;
+      }
+    }
+  }
+}
