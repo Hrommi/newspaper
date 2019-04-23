@@ -93,6 +93,7 @@
   }
 
   &__media {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,6 +107,24 @@
     @media (min-width: $screen-lg) {
       width: 75px;
       height: 75px;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: $border-radius;
+      background: rgba($black, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      #{$block-name}:hover & {
+        opacity: 1;
+      }
     }
 
     #{$block-name}--orange & {

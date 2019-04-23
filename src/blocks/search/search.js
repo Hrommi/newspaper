@@ -18,5 +18,17 @@ ready(function(){
         search.classList.toggle( 'search--open' );
       });
     });
+
+    var searchInput = search.querySelector( '.search__input' );
+
+    searchInput.addEventListener( 'focus', function() {
+      search.classList.add('search--focused');
+    });
+    searchInput.addEventListener( 'blur', function() {
+      var value = searchInput.value;
+      if (value.length === 0) {
+        search.classList.remove('search--focused');
+      }
+    });
   });
 });

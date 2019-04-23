@@ -16,7 +16,7 @@
     }
 
     #{$block-name}__item {
-      @include col(lg, 4, $grid-columns, 20px);
+      @include col(lg, 3, $grid-columns, 20px);
     }
   }
 

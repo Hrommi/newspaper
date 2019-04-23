@@ -39,12 +39,8 @@
       min-height: calc(#{$textarea-height} + 2px);
       resize: none;
 
-      @media (min-width: $screen-md) {
-        height: 210px;
-      }
-
       @media (min-width: $screen-lg) {
-        height: 280px;
+        height: 55px;
       }
     }
   }

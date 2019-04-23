@@ -57,16 +57,23 @@
       font-weight: 400;
     }
 
-    &:hover {
-      color: inherit;
-    }
-
     #{$block-name}__item--stories & {
 
       @media (min-width: $screen-md) {
         background: linear-gradient(100deg, #ffa800 0%, #ff0000 30%, #0077ff 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+      }
+    }
+
+    &:hover {
+      color: inherit;
+
+      @media (min-width: $screen-md) {
+        background: none;
+        -webkit-background-clip: inherit;
+        -webkit-text-fill-color: $color-danger;
+        color: $color-danger;
       }
     }
   }

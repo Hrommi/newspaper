@@ -46,12 +46,48 @@
       position: relative;
     }
 
+    .form__fieldset {
+
+      @media (min-width: $screen-md) {
+        margin-bottom: 0;
+      }
+    }
+
+    .field-text__input {
+      transition: min-height 0.3s;
+    }
+
     .field-actions {
 
       @media (min-width: $screen-md) {
         position: absolute;
         right: 24px;
-        bottom: 20px;
+        bottom: 16px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &--idea-focused {
+
+    .field-text__input {
+
+      @media (min-width: $screen-md) {
+        min-height: 245px;
+      }
+
+      @media (min-width: $screen-lg) {
+        min-height: 250px;
+      }
+    }
+
+    .field-actions {
+
+      @media (min-width: $screen-md) {
+        opacity: 1;
+        pointer-events: auto;
       }
     }
   }

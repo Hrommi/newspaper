@@ -39,21 +39,38 @@
     background-color: $gray;
     border-radius: $border-radius;
     text-decoration: none;
+    transition: background-color 0.3s;
 
     #{$block-name}__item--vk & {
       background-color: $color-vk;
+
+      &:hover {
+        background-color: mix(black, $color-vk, 10%);
+      }
     }
 
     #{$block-name}__item--fb & {
       background-color: $color-fb;
+
+      &:hover {
+        background-color: mix(black, $color-fb, 10%);
+      }
     }
 
     #{$block-name}__item--tw & {
       background-color: $color-tw;
+
+      &:hover {
+        background-color: mix(black, $color-tw, 10%);
+      }
     }
 
     #{$block-name}__item--telegram & {
       background-color: $color-telegram;
+
+      &:hover {
+        background-color: mix(black, $color-telegram, 10%);
+      }
     }
   }
 

@@ -37,17 +37,19 @@
   &:hover,
   &:focus {
     text-decoration: none;
-    color: $link-color--hover;
+    color: $text-color-invert;
+    background-color: $color-danger;
+    border-color: $color-danger;
   }
 
   // &:visited {
   //   color: $text-color;
   // }
 
-  &:active,
-  &:focus {
-    @include field-focus;
-  }
+  // &:active,
+  // &:focus {
+  //   @include field-focus;
+  // }
 
   svg {
     display: block;
@@ -98,7 +100,9 @@
 
     &:hover,
     &:focus {
-      color: $text-color-invert;
+      background: $text-color-invert;
+      color: $black;
+      mix-blend-mode: screen;
     }
   }
 
@@ -137,8 +141,8 @@
     &:hover,
     &:focus {
       color: $text-color-invert;
-      background-color: darken($color-main, 10%);
-      border-color: darken($color-main, 12%);
+      background-color: $color-danger;
+      border-color: $color-danger;
     }
   }
 }

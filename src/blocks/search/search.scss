@@ -12,6 +12,8 @@
 
   @media (min-width: $screen-lg) {
     width: auto;
+    padding-left: 20px;
+    transition: padding 0.3s;
   }
 
   &--open {
@@ -43,6 +45,21 @@
     }
   }
 
+  &--focused {
+
+    @media (min-width: $screen-lg) {
+      padding-left: 0;
+    }
+
+    #{$block-name}__input {
+
+      @media (min-width: $screen-lg) {
+        max-width: 100px;
+        border-bottom: 1px solid $gray-light;
+      }
+    }
+  }
+
   &__inner {
     display: flex;
     align-items: center;
@@ -57,6 +74,7 @@
   }
 
   &__icon {
+    flex-shrink: 0;
     width: 20px;
     height: 20px;
     padding: 2px;
@@ -75,6 +93,7 @@
 
     @media (min-width: $screen-lg) {
       display: block;
+      flex-shrink: 0;
       width: 20px;
       height: 20px;
       margin: 0;
@@ -101,10 +120,13 @@
 
     @media (min-width: $screen-lg) {
       display: block;
-      font-size: 0;
-      width: 80px;
+      width: 100%;
+      max-width: 80px;
+      padding: 0;
+      margin-left: 12px;
       font-size: $font-size-sm;
       font-weight: 400;
+      transition: max-width 0.3s;
     }
 
     &::placeholder {

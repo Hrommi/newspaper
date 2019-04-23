@@ -13,14 +13,18 @@
     padding: 8px 0;
     border-bottom: 1px solid $gray-light;
 
-    @media (min-width: $screen-md) {
-      display: none;
-    }
+    // @media (min-width: $screen-md) {
+    //   display: none;
+    // }
   }
 
   &__title {
     font-size: $font-size-sm;
     color: $gray;
+
+    @media (min-width: $screen-lg) {
+      font-size: $font-size-h3;
+    }
   }
 
   &__icon {
@@ -43,15 +47,15 @@
     overflow: hidden;
     transition: max-height 0.3s;
 
-    @media (min-width: $screen-md) {
-      display: block;
-      max-height: 210px;
-      overflow-y: auto;
-    }
+    // @media (min-width: $screen-md) {
+    //   display: block;
+    //   max-height: 210px;
+    //   overflow-y: auto;
+    // }
 
-    @media (min-width: $screen-lg) {
-      max-height: 280px;
-    }
+    // @media (min-width: $screen-lg) {
+    //   max-height: 280px;
+    // }
 
     #{$block-name}--open & {
       max-height: 210px;

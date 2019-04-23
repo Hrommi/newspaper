@@ -7,12 +7,12 @@
   $block-name:                &; // #{$block-name}__element
 
   margin: 0 0 20px;
-  padding: 28px 20px;
+  padding: 4px 20px;
   font-size: 17px;
 
   @media (min-width: $screen-lg) {
     margin-bottom: 32px;
-    padding: 28px 48px;
+    padding: 4px 48px;
   }
 
   &:last-child {

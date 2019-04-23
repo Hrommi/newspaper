@@ -39,7 +39,7 @@
         bottom: 0;
         left: 0;
         border-radius: $border-radius;
-        background: rgba($black, 0.6);
+        background: rgba($black, 0.5);
       }
     }
 
@@ -105,8 +105,15 @@
       background: $body-bg;
     }
 
-    #{$block-name}__title:after {
-      display: none;
+    #{$block-name}__title {
+
+      &:after {
+        display: none;
+      }
+
+      @media (min-width: $screen-lg) {
+        font-size: $font-size;
+      }
     }
 
     #{$block-name}__text {
