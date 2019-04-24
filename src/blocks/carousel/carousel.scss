@@ -7,7 +7,7 @@
   $block-name:                &; // #{$block-name}__element
 
   &__inner {
-    padding: 8px 0 50px;
+    padding: 8px 0 32px;
 
     @media (min-width: $screen-lg) {
       padding: 0 0 22px;

@@ -15,11 +15,22 @@
     width: 150px;
   }
 
+  &:hover {
+
+    #{$block-name}__image--red {
+
+      @media (min-width: $screen-md) {
+        opacity: 1;
+      }
+    }
+  }
+
   &__image {
     display: block;
     width: 100%;
 
-    &--white {
+    &--white,
+    &--red {
       position: absolute;
       top: 0;
       right: 0;

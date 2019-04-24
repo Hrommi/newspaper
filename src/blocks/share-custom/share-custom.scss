@@ -39,7 +39,7 @@
     background-color: $gray;
     border-radius: $border-radius;
     text-decoration: none;
-    transition: background-color 0.3s;
+    // transition: background-color 0.3s;
 
     #{$block-name}__item--vk & {
       background-color: $color-vk;

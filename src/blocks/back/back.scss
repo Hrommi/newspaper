@@ -8,6 +8,10 @@
 
   &__link {
     text-decoration: none;
+
+    &:hover {
+      color: $color-danger;
+    }
   }
 
   &__text {

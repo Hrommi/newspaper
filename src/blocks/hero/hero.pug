@@ -25,13 +25,13 @@ mixin hero(date, views, title, text, image, link, mods)
 
   article.hero(class=allMods)&attributes(attributes)
     .hero__inner
-      .hero__box
-        .hero__image(style='background-image: url(' + image + ');')
-        .hero__content
-          +publication-data(date, views)(class='hero__publication-data')
-          h3.hero__title!= title
-          .hero__text!= text
-          if (link)
-            .hero__button
-              +button('Читать статью', 'main')(href=link)
-        block
+      .hero__media
+        img.hero__image(src=image, alt='')
+      .hero__content
+        +publication-data(date, views)(class='hero__publication-data')
+        h3.hero__title!= title
+        .hero__text!= text
+        if (link)
+          .hero__button
+            +button('Читать статью', 'main')(href=link)
+      block

@@ -1,14 +1,14 @@
 //- Все примеси в этом файле должны начинаться c имени блока (article)
 
-mixin article(image, title, date, views, mods, isTagged)
+mixin article(type, image, title, date, views, mods)
 
   //- Принимает:
+  //-   type     {string} - тип
   //-   image    {string} - изображение
   //-   title    {string} - заголовок
   //-   date     {string} - дата публикации
   //-   views    {string} - количество просморов
   //-   mods     {string} - список модификаторов
-  //-   isTagged {bool} - флаг карточки с фоном
   //- Вызов:
         +article('Текст', 'some-mod')
 
@@ -25,19 +25,62 @@ mixin article(image, title, date, views, mods, isTagged)
 
   article.article(class=allMods)&attributes(attributes)
     .article__inner
-      .article__media
-        img.article__image(src=image, alt='')
-      .article__content
-        if (isTagged !== 'undefined' && isTagged)
-          .article__hashtag
-            | #НеПопастьНаБабки
-        if (isTagged === false)
-          .article__hint
-            | 10 статей
-        a.article__title(href='#')!= title
-        if (isTagged !== 'undefined' && isTagged)
-          .article__text
-            | Устоит&nbsp;ли ваш бизнес, если настанут тяжелые времена? Чтобы получить ответ, рассчитайте операционный рычаг.
-        if (date && views && isTagged !== false)
-          +publication-data(date, views)(class='article__publication-data')
-        block
+      case type
+        when 'base'
+          .article__media
+            img.article__image(src=image, alt='')
+          .article__content
+            a.article__title(href='#')!= title
+            +publication-data(date, views)(class='article__publication-data')
+        when 'dark'
+          .article__media
+            img.article__image(src=image, alt='')
+          .article__content
+            .article__hashtag
+              | #НеПопастьНаБабки
+            a.article__title(href='#')!= title
+            .article__text
+              | Устоит&nbsp;ли ваш бизнес, если настанут тяжелые времена? Чтобы получить ответ, рассчитайте операционный рычаг.
+            if (date && views && isTagged !== false)
+              +publication-data(date, views)(class='article__publication-data')
+        when 'compilation'
+          .article__media
+            img.article__image(src=image, alt='')
+          .article__content
+            .article__hint
+              | 10 статей
+            a.article__title(href='#')!= title
+            .article__text
+              +button('Открыть подборку', 'invert, small')(href='#')
+        when 'highlighted'
+          .article__media
+            img.article__image(src=image, alt='')
+          .article__content
+            .article__hint
+              | 10 статей
+            a.article__title(href='#')!= title
+            .article__text
+              | Компания много лет стагнировала, а&nbsp;потом и&nbsp;вовсе попала в&nbsp;жесткий кризис. Хорошо, что руководитель смог в&nbsp;нем разобраться...
+            .article__button
+              +button('Читать историю', 'small')(href='#')
+      block
+
+
+
+      // .article__media
+      //   img.article__image(src=image, alt='')
+      // .article__content
+      //   if (isTagged !== 'undefined' && isTagged)
+      //     .article__hashtag
+      //       | #НеПопастьНаБабки
+      //   if (isTagged === false)
+      //     .article__hint
+      //       | 10 статей
+      //   a.article__title(href='#')!= title
+      //   if (isTagged !== 'undefined' && isTagged)
+      //     .article__text
+      //       | Устоит&nbsp;ли ваш бизнес, если настанут тяжелые времена? Чтобы получить ответ, рассчитайте операционный рычаг.
+      //   if (date && views && isTagged !== false)
+      //     +publication-data(date, views)(class='article__publication-data')
+      //   block
+

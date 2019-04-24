@@ -32,6 +32,7 @@
     display: flex;
     overflow-y: hidden;
     overflow-x: auto;
+    scroll-behavior: smooth;
 
     @media (min-width: $screen-lg) {
       @include row();

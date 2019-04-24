@@ -145,6 +145,10 @@
     font-weight: 700;
     text-decoration: none;
 
+    &:hover {
+      color: $color-main;
+    }
+
     &:after {
       display: block;
       content: '';

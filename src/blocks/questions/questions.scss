@@ -26,17 +26,19 @@
   }
 
   &__separator {
-    display: none;
     flex: 0 0 100%;
     max-width: 100%;
     margin-top: 24px;
 
-    @media (min-width: $screen-md) {
-      display: block;
-    }
-
     @media (min-width: $screen-lg) {
       margin-top: 40px;
+    }
+
+    &--mobile {
+
+      @media (min-width: $screen-md) {
+        display: none;
+      }
     }
   }
 }

@@ -24,6 +24,13 @@
     color: $link-color--secondary;
   }
 
+  &__heading {
+
+    @media (min-width: $screen-lg) {
+      margin-bottom: 20px;
+    }
+  }
+
   .heading__title {
     max-width: 100%;
   }

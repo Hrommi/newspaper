@@ -10,6 +10,7 @@ ready(function(){
     loop:true,
     autoplay:true,
     autoplayTimeout:7000,
-    autoplayHoverPause:true
+    autoplayHoverPause:true,
+    autoHeight: true
   });
 });
