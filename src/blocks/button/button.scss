@@ -10,7 +10,7 @@
   margin: 0;
   border-radius: $border-radius;
   border: 2px solid currentColor;
-  padding: 8px 36px;
+  padding: 8px 28px;
   vertical-align: middle;
   // white-space: nowrap;
   // text-overflow: ellipsis;
@@ -30,7 +30,7 @@
   outline: none;
 
   @media (min-width: $screen-lg) {
-    padding: 12px 56px;
+    padding: 12px 32px;
     font-size: 19px;
     font-weight: 700;
   }
@@ -151,6 +151,21 @@
       color: $text-color-invert;
       background-color: $color-danger;
       border-color: $color-danger;
+    }
+  }
+
+  &__mobile {
+
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  &__mobile + &__text {
+    display: none;
+
+    @media (min-width: $screen-sm) {
+      display: block;
     }
   }
 }

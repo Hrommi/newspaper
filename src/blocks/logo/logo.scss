@@ -11,6 +11,14 @@
   width: 115px;
   position: relative;
 
+  &--page {
+    width: 240px;
+
+    @media (min-width: $screen-md) {
+      width: 150px;
+    }
+  }
+
   @media (min-width: $screen-lg) {
     width: 150px;
   }

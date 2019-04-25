@@ -84,6 +84,14 @@
         position: static !important;
       }
     }
+
+    &--logo-page {
+      margin: 0 auto;
+
+      @media (min-width: $screen-md) {
+        padding-right: 220px;
+      }
+    }
   }
 
   &__social {
