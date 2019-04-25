@@ -1,0 +1,68 @@
+extends ../pug/layout.pug
+
+block meta
+  title Подборки статей
+  meta(name='description', content='')
+
+//- block append head
+//-   link(rel='stylesheet', href='css/some.css')
+
+block content
+  +section()
+    +heading('h2', 'Подборки статей')
+    +articles()
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+      +articles__item()
+        +article('compilation', 'img/article-image-4.png', 'Как считать финансы', '2 марта', '1&nbsp;502', 'orange, dark, compilation')
+
+  +section()
+    +subscribe()
+      +subscribe__item()
+        +heading('h2', 'Подпишитесь, чтобы получать свежие статьи', '', 'limited-width')
+        +subscribe__title('в&nbsp;соцсетях:')
+        +social()
+          +social-link('#', 'zen')(title='Yandex Zen')
+            svg(width='100%', height='100%')
+              use(xlink:href='img/sprite.svg#search')
+          +social-link('#', 'instagram')(title='Instagram')
+            svg(width='100%', height='100%')
+              use(xlink:href='img/sprite.svg#search')
+          +social-link('#', 'vk')(title='VKontakte')
+            svg(width='100%', height='100%')
+              use(xlink:href='img/sprite.svg#search')
+          +social-link('#', 'telegram')(title='Telegram')
+            svg(width='100%', height='100%')
+              use(xlink:href='img/sprite.svg#search')
+      +subscribe__item()
+        +subscribe__title('по&nbsp;почте, раз в&nbsp;неделю')
+        +form('inline')
+          +fieldset()
+            +field-text({
+              attrs: {
+                placeholder: 'Напишите эл. почту'
+              }
+            })
+          +field-actions()
+            +button('<svg width="28" height="29"><use xlink:href="img/sprite.svg#arrow-right"></use></svg>', 'main, icon')
+
+  +separator('mobile')
+
+
+//- block footer
+//-   p footer
+
+//- block append page-bottom
+//-   script(src='js/some.js')
