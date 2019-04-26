@@ -10,7 +10,8 @@ var screenWidth = 992;
 function createScroll () {
   hasScroll = true;
   $('.custom-scrollbar').mCustomScrollbar({
-    axis: 'x'
+    axis: 'x',
+    autoHideScrollbar: true
   });
 }
 
