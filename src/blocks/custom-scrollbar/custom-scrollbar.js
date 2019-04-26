@@ -8,7 +8,6 @@ var needScroll;
 var screenWidth = 992;
 
 function createScroll () {
-  console.log('create');
   hasScroll = true;
   $('.custom-scrollbar').mCustomScrollbar({
     axis: 'x'
@@ -16,7 +15,6 @@ function createScroll () {
 }
 
 function destroyScroll () {
-  console.log('destroy');
   hasScroll = false;
   $('.custom-scrollbar').mCustomScrollbar('destroy');
 }
