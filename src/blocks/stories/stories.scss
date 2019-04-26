@@ -16,8 +16,8 @@
 
   &__grid {
     display: flex;
-    overflow-y: hidden;
-    overflow-x: auto;
+    // overflow-y: hidden;
+    // overflow-x: auto;
 
     @media (min-width: $screen-lg) {
       display: grid;

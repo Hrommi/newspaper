@@ -1,11 +1,12 @@
 //- Все примеси в этом файле должны начинаться c имени блока (articles)
 
-mixin articles(mods)
+mixin articles(isScroll, mods)
 
   //- Принимает:
-  //-   mods    {string} - список модификаторов
+  //-   isScroll {bool}   - кастомный скролл
+  //-   mods     {string} - список модификаторов
   //- Вызов:
-        +articles('some-mod')
+        +articles(false, 'some-mod')
 
   -
     // список модификаторов
@@ -18,9 +19,14 @@ mixin articles(mods)
     }
 
   .articles(class=allMods)&attributes(attributes)
-    .articles__inner
-      .articles__grid
-        block
+    if (isScroll)
+      .articles__inner.custom-scrollbar
+        .articles__grid
+          block
+    else
+      .articles__inner
+        .articles__grid
+          block
 
 mixin articles__item(mods)
 

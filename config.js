@@ -14,6 +14,7 @@ let config = {
     'src/scss/variables.scss',
     'src/scss/mixins.scss',
     '../../node_modules/owl.carousel2/dist/assets/owl.carousel.min.css',
+    '../../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css',
     // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addStyleAfter': [
@@ -22,6 +23,7 @@ let config = {
   'addJsBefore': [
     '../../node_modules/jquery/src/jquery.js',
     '../../node_modules/owl.carousel2/dist/owl.carousel.min.js',
+    // '../../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'
   ],
   'addJsAfter': [
     './script.js',
