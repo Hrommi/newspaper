@@ -34,10 +34,10 @@
   }
 
   &__item {
-    flex: 0 0 (236px + $grid-gutter-width / 2);
-    max-width: (236px + $grid-gutter-width / 2);
+    box-sizing: content-box;
+    flex: 0 0 236px;
+    max-width: 236px;
     padding-right: $grid-gutter-width / 2;
-    padding-left: $grid-gutter-width / 2;
 
     @media (min-width: $screen-lg) {
       max-width: 100%;
@@ -46,9 +46,11 @@
     }
 
     &:nth-child(1) {
+      padding-left: $grid-gutter-width / 2;
 
       @media (min-width: $screen-lg) {
         grid-area: first;
+        padding-left: 0;
       }
     }
 

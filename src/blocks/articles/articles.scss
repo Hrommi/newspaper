@@ -60,11 +60,19 @@
   }
 
   &__item {
-    flex: 0 0 (236px + $grid-gutter-width / 2);
-    max-width: (236px + $grid-gutter-width / 2);
+    box-sizing: content-box;
+    flex: 0 0 236px;
+    max-width: 236px;
     margin-top: $grid-gutter-width;
     padding-right: $grid-gutter-width / 2;
-    padding-left: $grid-gutter-width / 2;
     @include col(lg, 3);
+
+    @media (min-width: $screen-lg) {
+      box-sizing: border-box;
+    }
+
+    &:first-child {
+      padding-left: $grid-gutter-width / 2;
+    }
   }
 }

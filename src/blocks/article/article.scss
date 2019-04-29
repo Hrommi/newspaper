@@ -8,6 +8,7 @@
 
   position: relative;
   height: 100%;
+  box-sizing: border-box;
 
   &--dark {
     min-height: 280px;

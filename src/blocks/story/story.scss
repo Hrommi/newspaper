@@ -9,40 +9,12 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 100%;
-  padding: 16px 12px 28px 16px;
-  border-radius: $border-radius;
-  background-color: $text-color;
-  background-position: right center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: $text-color-invert;
+  box-sizing: border-box;
 
   @media (min-width: $screen-lg) {
+    height: 100%;
     min-height: 200px;
-    padding: 32px 40px 40px;
-  }
-
-  &:before {
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba($black, 0.5);
-
-    @media (min-width: $screen-lg) {
-      display: none;
-    }
-  }
-
-  &--small-desktop {
-
-    @media (min-width: $screen-lg) {
-      padding: 16px 28px 20px;
-    }
+    color: $text-color-invert;
   }
 
   &:hover {
@@ -51,6 +23,14 @@
 
       @media (min-width: $screen-lg) {
         opacity: 1;
+      }
+    }
+
+    #{$block-name}__title {
+      color: $color-main;
+
+      @media (min-width: $screen-lg) {
+        color: inherit;
       }
     }
   }
@@ -105,6 +85,23 @@
     }
   }
 
+  &--small-desktop {
+
+    #{$block-name}__content {
+
+      @media (min-width: $screen-lg) {
+        padding: 16px 28px 20px;
+      }
+    }
+
+    #{$block-name}__button {
+
+      @media (min-width: $screen-lg) {
+        margin-top: 0;
+      }
+    }
+  }
+
   &__inner {
     position: relative;
     z-index: 1;
@@ -113,10 +110,44 @@
     flex-grow: 1;
   }
 
-  &__publication-data {
-    margin-bottom: 24px;
+  &__media {
+    height: 300px;
+    margin-bottom: 12px;
+    border-radius: $border-radius;
+    background-color: $text-color;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     @media (min-width: $screen-lg) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @media (min-width: $screen-lg) {
+      position: relative;
+      min-height: 200px;
+      padding: 32px 40px 40px;
+      color: $text-color-invert;
+    }
+  }
+
+  &__publication-data {
+    order: 1;
+
+    @media (min-width: $screen-lg) {
+      order: -1;
       margin-bottom: 8px;
       opacity: 0;
       transition: opacity 0.3s;
@@ -130,7 +161,7 @@
   &__title {
     font-size: $font-size-h3;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 
     @media (min-width: $screen-lg) {
       max-width: 620px;
@@ -187,9 +218,11 @@
   }
 
   &__text {
+    display: none;
     margin-bottom: 32px;
 
     @media (min-width: $screen-lg) {
+      display: block;
       max-width: 400px;
       margin-bottom: 12px;
       font-size: 14px;
@@ -201,16 +234,28 @@
   }
 
   &__button {
-    margin-top: auto;
+    width: 0;
+    height: 0;
+    opacity: 0;
 
     @media (min-width: $screen-lg) {
+      width: auto;
+      height: auto;
       margin-top: 20px;
+      opacity: 1;
     }
 
-    #{$block-name}--small-desktop & {
+    .button:after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
 
       @media (min-width: $screen-lg) {
-        margin-top: 0;
+        display: none;
       }
     }
   }

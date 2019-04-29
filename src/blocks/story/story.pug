@@ -24,15 +24,17 @@ mixin story(date, views, title, subtitle, text, image, isSmall, mods)
       }
     }
 
-  .story(class=allMods, style='background-image: url(' + image + ');')&attributes(attributes)
+  .story(class=allMods)&attributes(attributes)
     .story__inner
-      +publication-data(date, views)(class='story__publication-data')
-      .story__title!= title
-      .story__subtitle!= subtitle
-      .story__collapse
-        .story__text!= text
-        .story__button
-          if (isSmall)
-            +button('Читать историю', 'invert, small-desktop')(href='#')
-          else
-            +button('Читать историю', 'invert')(href='#')
+      .story__media(style='background-image: url(' + image + ');')
+      .story__content
+        +publication-data(date, views)(class='story__publication-data')
+        .story__title!= title
+        .story__subtitle!= subtitle
+        .story__collapse
+          .story__text!= text
+          .story__button
+            if (isSmall)
+              +button('Читать историю', 'invert, small-desktop')(href='#')
+            else
+              +button('Читать историю', 'invert')(href='#')
